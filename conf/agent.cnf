@@ -1,0 +1,35 @@
+#[Mysql_Conn]
+mysql_sock=/var/run/mariadb/mariadb.sock
+mysql_host=localhost
+mysql_db_name=test
+mysql_user=test
+mysql_passwd=2wsx3edc
+
+#[agent]
+master_enable=Yes
+slave_enable=Yes
+
+#[Discard]
+dev=wlp3s0
+filter_rule=tcp
+#filter_rule=not llc and udp
+#filter_rule=not tcp and not udp ant not arp and not ssdp
+save_pcap=/var/tmp
+branch=10
+log_file=/var/tmp/agent.log
+pid=/tmp/agent.lock
+
+#space_dispatch
+max_day=7
+max_record=500000
+disk_threshold=0.7
+interval_time=360
+
+#external_forward
+forward_enable=0
+#forward_port=1234
+#forward_ip=127.0.0.1
+forward_url=127.0.0.1:1234;127.0.0.2:1234
+
+#snort
+proto_flags=File Transfer Protocol (FTP);FTP Data

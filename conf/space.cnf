@@ -1,0 +1,8 @@
+log_file=/var/tmp/space.log
+pid=/tmp/space.lock
+
+#space_dispatch
+max_day=7
+max_record=50000
+disk_threshold=0.7
+interval_time=360

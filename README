@@ -1,0 +1,42 @@
+autoconf automake libtool
+
+#build
+touch Makefile.am
+autoscan
+vi configure.scan
+aclocal
+autoheader
+touch README NEWS AUTHORS ChangeLog
+automake --add-missing
+autoconf
+./configure
+
+#Socket编程模式
+1.多进程模式 优势:长连接
+2.多线程模式 优势:短连接
+3.select NIO模式+线程池
+4.epoll NIO模式+线程池 优势:高并发
+
+#pkg-config --cflags --libs gtk+-2.0
+#pkg-config --cflags --libs opencv
+
+mysql_config --libs
+mysql_config --cflags
+gcc -o mysqlconn $(mysql_config --cflags) mysql-c-api.c $(mysql_config --libs)
+
+note:
+抓包程序的转发包必须过滤掉,不然会导致抓包程序循环抓包直至内存耗尽。
+uwirk
+
+
+#静态编译
+ar rc libhello.a libhello.o
+ranlib libhello.a
+
+
+##shell		文件描述符
+#0	标准输入
+#1	标准输出
+#2	标准错误输出
+
+#tshark 抓包按照分割文件大小抓包并解析输出，存在解析跟不上抓包速度。会造成管道异常，停止抓包进程dumpcap
